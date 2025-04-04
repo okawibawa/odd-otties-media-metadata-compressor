@@ -16,7 +16,12 @@ const log = (msg: string) => console.log(`[INFO] ${msg}`);
 const getIpfsHash = (imageUrl: string) => imageUrl.split("/")[2] || "";
 
 const readJsonFile = async () => {
-  const filePath = path.resolve(import.meta.dir, "..", "data", "metadata.json");
+  const filePath = path.resolve(
+    import.meta.dir,
+    "..",
+    "data",
+    "combined_data.json",
+  );
   const file = Bun.file(filePath);
   log(`Reading JSON from ${filePath}`);
   return await file.json();
